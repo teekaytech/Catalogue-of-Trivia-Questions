@@ -2,6 +2,7 @@ import {
   FETCH_CATEGORIES,
   FILTER_DIFFICULTY,
   initialState,
+  SET_CATEGORY,
 } from '../actions/types';
 
 const categoriesReducer = (state = initialState, action) => {
@@ -20,6 +21,11 @@ const categoriesReducer = (state = initialState, action) => {
       return {
         ...state,
         difficulty: action.payload,
+      };
+    case SET_CATEGORY:
+      return {
+        ...state,
+        category: action.payload,
       };
     default:
       return state;

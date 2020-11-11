@@ -3,16 +3,21 @@ import { connect } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import Category from '../components/Category';
-import { fetchCategories } from '../actions';
+import { fetchCategories, fetchQuestions, setCategory } from '../actions';
 
-const CategoryList = ({ categories, fetchCategories }) => {
+const CategoryList = ({
+  fetchQuestions, categories, fetchCategories, setCategory,
+}) => {
   useEffect(() => {
     if (categories.length === 0) {
       fetchCategories();
     }
   }, [categories]);
 
-  const handleCategoryChange = category => category;
+  const handleCategoryChange = category => {
+    fetchQuestions();
+    setCategory(category);
+  };
 
   const CategoryList = categories.length === 0 ? (
     <div>Loading Categories...</div>
@@ -37,10 +42,26 @@ const CategoryList = ({ categories, fetchCategories }) => {
 CategoryList.propTypes = {
   fetchCategories: PropTypes.func.isRequired,
   categories: PropTypes.arrayOf(Object).isRequired,
+  fetchQuestions: PropTypes.func.isRequired,
+  setCategory: PropTypes.func.isRequired,
 };
+
+const mapDispatchToProps = dispatch => ({
+  fetchCategories: () => {
+    dispatch(fetchCategories());
+  },
+  fetchQuestions: () => {
+    dispatch(fetchQuestions());
+  },
+  setCategory: category => {
+    dispatch(setCategory(category));
+  },
+});
 
 const mapStateToProps = state => ({
   categories: state.categories.categories,
+  questions: state.questions.questions,
+  difficulty: state.categories.difficulty,
 });
 
-export default connect(mapStateToProps, { fetchCategories })(CategoryList);
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryList);
