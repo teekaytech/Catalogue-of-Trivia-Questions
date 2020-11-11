@@ -1,5 +1,3 @@
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
@@ -14,13 +12,15 @@ const CategoryList = ({ categories, fetchCategories }) => {
     }
   }, [categories]);
 
+  const handleCategoryChange = category => category;
+
   const CategoryList = categories.length === 0 ? (
     <div>Loading Categories...</div>
   ) : (
     categories.map(category => (
       <div key={uuidv4()}>
         <h4>
-          {category}
+          <Category name={category} handleSubmit={handleCategoryChange} />
         </h4>
       </div>
     ))
@@ -28,7 +28,7 @@ const CategoryList = ({ categories, fetchCategories }) => {
 
   return (
     <div>
-      <Category />
+      <h3>List of Available categories</h3>
       {CategoryList}
     </div>
   );
@@ -36,7 +36,7 @@ const CategoryList = ({ categories, fetchCategories }) => {
 
 CategoryList.propTypes = {
   fetchCategories: PropTypes.func.isRequired,
-  categories: PropTypes.array.isRequired,
+  categories: PropTypes.arrayOf(Object).isRequired,
 };
 
 const mapStateToProps = state => ({

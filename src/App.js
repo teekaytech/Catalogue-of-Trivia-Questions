@@ -12,7 +12,7 @@ const App = () => (
       </header>
       <Switch>
         <Route exact path="/" component={CategoryList} />
-        <Route path="/categories/:category_id" component={Details} />
+        <Route path="/categories/:category_name" component={Details} />
       </Switch>
     </div>
   </BrowserRouter>

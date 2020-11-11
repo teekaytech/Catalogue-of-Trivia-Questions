@@ -1,4 +1,4 @@
-import { FETCH_CATEGORIES, FETCH_QUESTIONS } from './types';
+import { FETCH_CATEGORIES, FILTER_DIFFICULTY, FETCH_QUESTIONS } from './types';
 
 export const fetchCategories = () => dispatch => {
   fetch('https://opentdb.com/api.php?amount=50')
@@ -17,3 +17,8 @@ export const fetchQuestions = category => dispatch => {
       payload: questions,
     }));
 };
+
+export const filterDifficulty = difficulty => ({
+  type: FILTER_DIFFICULTY,
+  payload: difficulty,
+});
