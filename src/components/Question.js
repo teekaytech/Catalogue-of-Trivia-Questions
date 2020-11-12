@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -6,13 +7,19 @@ const Question = ({ question }) => (
     <p>{question.category}</p>
     <p>{question.type}</p>
     <p>{question.difficulty}</p>
-    <h3>{question.question}</h3>
-    <p>{question.correct_answer}</p>
+    <h3 dangerouslySetInnerHTML={{ __html: question.question }} />
+    <p dangerouslySetInnerHTML={{ __html: question.correct_answer }} />
   </article>
 );
 
 Question.propTypes = {
-  question: PropTypes.arrayOf(Object).isRequired,
+  question: PropTypes.objectOf({
+    category: PropTypes.string,
+    type: PropTypes.string,
+    difficulty: PropTypes.string,
+    question: PropTypes.string,
+    correct_answer: PropTypes.string,
+  }).isRequired,
 };
 
 export default Question;

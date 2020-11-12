@@ -40,8 +40,12 @@ const Detail = ({ questions, category }) => {
   );
 };
 
+Detail.defaultProps = {
+  questions: [],
+};
+
 Detail.propTypes = {
-  questions: PropTypes.arrayOf(Object).isRequired,
+  questions: PropTypes.arrayOf(Object),
   category: PropTypes.string.isRequired,
 };
 
