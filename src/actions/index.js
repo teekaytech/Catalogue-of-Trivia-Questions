@@ -22,7 +22,7 @@ export const fetchQuestions = () => dispatch => {
 
 export const filterDifficulty = difficulty => ({
   type: FILTER_DIFFICULTY,
-  payload: difficulty === 'All Categories' ? 'All' : difficulty,
+  payload: difficulty === 'All levels' ? 'All' : difficulty,
 });
 
 export const setCategory = category => ({
