@@ -18,7 +18,6 @@ Question.propTypes = {
     type: PropTypes.string,
     difficulty: PropTypes.string,
     question: PropTypes.string,
-    correct_answer: PropTypes.string,
   }).isRequired,
 };
 

@@ -9,14 +9,14 @@ const CategoryFilter = ({ handleCategoryChange }) => {
 
   const catList = categoryType.map(cat => (
     <option key={Math.random()} value={cat}>
-      {cat}
+      {cat.charAt(0).toUpperCase() + cat.substr(1).toLowerCase()}
     </option>
   ));
 
   return (
     <div>
       <label htmlFor="categoryFilter">
-        Filter Categories:
+        Levels of difficulty:
         <select
           name="category"
           id="categoryFilter"
@@ -24,7 +24,7 @@ const CategoryFilter = ({ handleCategoryChange }) => {
             handleChange(e.target.value);
           }}
         >
-          <option>All Categories</option>
+          <option>All levels</option>
           {catList}
         </select>
       </label>

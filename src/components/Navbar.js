@@ -10,10 +10,11 @@ const Navbar = ({ handleFilter }) => {
     handleFilter(difficulty);
   };
 
-  const salutations = <h1>Hello World</h1>;
   return (
     <nav>
-      <Link to="/">{salutations}</Link>
+      <Link to="/">
+        <h1>Catalogue of Trivia Questions</h1>
+      </Link>
       <div>
         <CategoryFilter handleCategoryChange={handleCategoryChange} />
       </div>
