@@ -10,25 +10,30 @@ const Question = ({ question }) => {
     arr.sort(() => Math.random() - 0.5);
   };
 
-  const validate = (selected, answer) => (selected === answer);
-
-  const checkAnswer = (option, answer) => (validate(option, answer) ? 'right' : 'wrong');
+  const validate = (selected, answer) => {
+    const selectedOption = document.getElementById(selected);
+    const rightOption = document.getElementById(answer);
+    if (selected === answer) {
+      selectedOption.classList.add('right');
+    } else {
+      selectedOption.classList.add('wrong');
+      rightOption.classList.add('right');
+    }
+  };
 
   const optionList = (arr, ans) => {
     const options = [...arr, ans];
     shuffleOptions(options);
-    const counter = 0;
     return options.length ? (
       options.map(opt => (
         <li
           key={uuidv4()}
           type="submit"
-          id={counter}
+          id={opt}
           dangerouslySetInnerHTML={{ __html: opt }}
           onClick={() => {
             validate(opt, ans);
           }}
-          className={checkAnswer(opt, ans)}
         />
       ))
     ) : (
@@ -39,10 +44,8 @@ const Question = ({ question }) => {
   return (
     <article>
       <p>{question.category}</p>
-      <p>{question.type}</p>
       <p>{question.difficulty}</p>
       <h3 dangerouslySetInnerHTML={{ __html: question.question }} />
-      <p dangerouslySetInnerHTML={{ __html: question.correct_answer }} />
       <ul>
         {optionList(question.incorrect_answers, question.correct_answer)}
       </ul>
@@ -51,11 +54,12 @@ const Question = ({ question }) => {
 };
 
 Question.propTypes = {
-  question: PropTypes.objectOf({
+  question: PropTypes.shape({
     category: PropTypes.string,
-    type: PropTypes.string,
     difficulty: PropTypes.string,
     question: PropTypes.string,
+    incorrect_answers: PropTypes.arrayOf(String),
+    correct_answer: PropTypes.string,
   }).isRequired,
 };
 
