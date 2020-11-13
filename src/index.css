@@ -19,11 +19,3 @@ code {
   padding: 0;
   box-sizing: border-box;
 }
-
-.right {
-  border: 2px solid green;
-}
-
-.wrong {
-  border: 2px solid red;
-}

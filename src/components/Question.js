@@ -11,34 +11,33 @@ const Question = ({ question }) => {
     arr.sort(() => Math.random() - 0.5);
   };
 
-  const validate = (selected, answer) => {
-    const selectedOption = document.getElementById(selected);
-    const rightOption = document.getElementById(answer);
-    if (selected === answer) {
-      selectedOption.classList.add('right');
-    } else {
-      selectedOption.classList.add('wrong');
-      rightOption.classList.add('right');
-    }
+  const validate = (selected, answer, id) => {
+    const selectedOption = document.getElementById(id);
+    return selected === answer
+      ? selectedOption.classList.add(`${styles.right}`)
+      : selectedOption.classList.add(`${styles.wrong}`);
   };
 
   const optionList = (arr, ans) => {
     const options = [...arr, ans];
     shuffleOptions(options);
     return options.length ? (
-      options.map(opt => (
-        <li
-          key={uuidv4()}
-          type="submit"
-          id={opt}
-          dangerouslySetInnerHTML={{ __html: opt }}
-          onClick={() => {
-            validate(opt, ans);
-          }}
-        />
-      ))
+      options.map(opt => {
+        const thisId = uuidv4();
+        return (
+          <li
+            key={thisId}
+            type="submit"
+            id={thisId}
+            dangerouslySetInnerHTML={{ __html: opt }}
+            onClick={() => {
+              validate(opt, ans, thisId);
+            }}
+          />
+        );
+      })
     ) : (
-      <p>No option for this question</p>
+      <p>Loading questions...</p>
     );
   };
 
@@ -50,7 +49,7 @@ const Question = ({ question }) => {
         {question.difficulty}
       </p>
       <h4 className={styles.question} dangerouslySetInnerHTML={{ __html: question.question }} />
-      <ul>
+      <ul className={styles.optionList}>
         {optionList(question.incorrect_answers, question.correct_answer)}
       </ul>
     </article>

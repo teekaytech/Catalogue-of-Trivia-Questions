@@ -1,7 +1,7 @@
 .main {
   text-align: left;
   padding: 0;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .main h4 {
@@ -38,9 +38,30 @@
 }
 
 .difficulty {
+  display: block;
   text-align: right;
 }
 
 .question {
   font-size: 25px;
+  margin: 20px 0;
+}
+
+.optionList li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 50px;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 5px;
+  border-left: 20px solid #ee8434;
+  cursor: pointer;
+}
+
+.right {
+  background-color: green;
+}
+
+.wrong {
+  background-color: red;
 }
