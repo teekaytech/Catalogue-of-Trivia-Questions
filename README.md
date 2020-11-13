@@ -19,6 +19,11 @@
 
 [Catalogue of Trivia Questions](https://cat-of-trivia-questions.netlify.app/)
 
+## Project presentation links (9minutes)
+
+[Part 1](https://www.loom.com/share/c906f204e82843f8bd6348b83e9f7562)
+[Part 2](https://www.loom.com/share/6a358307f9f04bce9a93b812f63367e3)
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
