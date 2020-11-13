@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import styles from '../css_modules/categories.module.css';
 
 const Category = ({ name, handleSubmit }) => (
-  <div>
+  <div className={styles.category}>
     <h4>{name}</h4>
     <Link to={`/categories/${name}`} onClick={() => handleSubmit(name)}>
-      View Questions
+      Click to view questions
     </Link>
   </div>
 );

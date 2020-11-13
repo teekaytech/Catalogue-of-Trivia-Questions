@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import Category from '../components/Category';
 import { fetchCategories, fetchQuestions, setCategory } from '../actions';
+import styles from '../css_modules/categories.module.css';
 
 const CategoryList = ({
   fetchQuestions, categories, fetchCategories, setCategory,
@@ -23,19 +24,22 @@ const CategoryList = ({
     <div>Loading Categories...</div>
   ) : (
     categories.map(category => (
-      <div key={uuidv4()}>
-        <h4>
-          <Category name={category} handleSubmit={handleCategoryChange} />
-        </h4>
-      </div>
+      <Category
+        name={category}
+        handleSubmit={handleCategoryChange}
+        key={uuidv4()}
+      />
     ))
   );
 
   return (
-    <div>
-      <h3>List of Available categories</h3>
-      {CategoryList}
-    </div>
+    <main className={styles.main}>
+      <h2 className={styles.cHeader}>List of available categories</h2>
+      <div className={styles.categories}>
+        {CategoryList}
+      </div>
+
+    </main>
   );
 };
 

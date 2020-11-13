@@ -3,11 +3,12 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import CategoryList from './containers/CategoryList';
 import Details from './containers/Details';
+import styles from './css_modules/app.module.css';
 
 const App = () => (
   <BrowserRouter>
     <div className="App">
-      <header className="App-header">
+      <header className={styles.header}>
         <Navbar />
       </header>
       <Switch>

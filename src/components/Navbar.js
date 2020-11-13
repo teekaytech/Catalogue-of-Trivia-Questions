@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CategoryFilter from './CategoryFilter';
 import { filterDifficulty } from '../actions';
+import styles from '../css_modules/navbar.module.css';
 
 const Navbar = ({ handleFilter }) => {
   const handleCategoryChange = difficulty => {
@@ -11,9 +12,14 @@ const Navbar = ({ handleFilter }) => {
   };
 
   return (
-    <nav>
+    <nav className={styles.nav}>
       <Link to="/">
-        <h1>Catalogue of Trivia Questions</h1>
+        <h1>
+          <span role="img" aria-label="Home">
+            🏠
+          </span>
+          Catalogue of Trivia Questions
+        </h1>
       </Link>
       <div>
         <CategoryFilter handleCategoryChange={handleCategoryChange} />

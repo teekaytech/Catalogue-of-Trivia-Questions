@@ -2,9 +2,9 @@ import React from 'react';
 import Detail from '../components/Detail';
 
 const Details = () => (
-  <div>
+  <main>
     <Detail />
-  </div>
+  </main>
 );
 
 export default Details;

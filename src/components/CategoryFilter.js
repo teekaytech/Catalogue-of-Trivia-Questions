@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { categoryType } from '../actions/types';
+import styles from '../css_modules/navbar.module.css';
 
 const CategoryFilter = ({ handleCategoryChange }) => {
   const handleChange = type => {
@@ -14,10 +15,11 @@ const CategoryFilter = ({ handleCategoryChange }) => {
   ));
 
   return (
-    <div>
+    <div className={styles.filter}>
       <label htmlFor="categoryFilter">
         Levels of difficulty:
         <select
+          className={styles.select}
           name="category"
           id="categoryFilter"
           onChange={e => {

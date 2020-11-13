@@ -4,6 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
+import styles from '../css_modules/questions.module.css';
 
 const Question = ({ question }) => {
   const shuffleOptions = arr => {
@@ -42,10 +43,13 @@ const Question = ({ question }) => {
   };
 
   return (
-    <article>
-      <p>{question.category}</p>
-      <p>{question.difficulty}</p>
-      <h3 dangerouslySetInnerHTML={{ __html: question.question }} />
+    <article className={styles.questionContainer}>
+      <p className={styles.difficulty}>
+        Difficulty:
+        {' '}
+        {question.difficulty}
+      </p>
+      <h4 className={styles.question} dangerouslySetInnerHTML={{ __html: question.question }} />
       <ul>
         {optionList(question.incorrect_answers, question.correct_answer)}
       </ul>

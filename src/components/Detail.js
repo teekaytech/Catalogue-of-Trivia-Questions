@@ -1,9 +1,10 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import Question from './Question';
+import styles from '../css_modules/questions.module.css';
+import styles2 from '../css_modules/categories.module.css';
 
 const Detail = ({ questions, category, difficulty }) => {
   const setDifficulty = question => (difficulty === 'All' ? question.difficulty : difficulty);
@@ -17,34 +18,35 @@ const Detail = ({ questions, category, difficulty }) => {
 
   const QuestionList = filteredQuestions ? (
     filteredQuestions.map(question => (
-      <div key={uuidv4()}>
-        <Question question={question} />
-      </div>
+      <Question question={question} key={uuidv4()} />
     ))
   ) : (
     <div>Loading Questions...</div>
   );
 
   return (
-    <div>
-      <h4>
-        Available trivia questions for
-        {' '}
-        {category}
-        {' '}
-        category:
-      </h4>
-      <h6>
-        No. of Questions:
-        {' '}
-        {filteredQuestions.length}
-        ,
-        Level of Difficulty:
-        {' '}
-        { difficulty }
-      </h6>
+    <main className={`${styles2.main} ${styles.main}`}>
+      <div className={styles.questionDetails}>
+        <h4>
+          Trivia questions for
+          {' '}
+          <span className={styles.catName}>
+            {category}
+          </span>
+          {' '}
+          category.
+        </h4>
+        <h4 className={styles.details}>
+          No. of Questions:
+          {' '}
+          {filteredQuestions.length}
+          , Level of Difficulty:
+          {' '}
+          {difficulty.toUpperCase()}
+        </h4>
+      </div>
       {QuestionList}
-    </div>
+    </main>
   );
 };
 
