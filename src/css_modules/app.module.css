@@ -4,3 +4,9 @@
   margin-bottom: 20px;
   border-bottom: 2px solid rgb(255, 240, 255);
 }
+
+@media only screen and (max-width: 620px) {
+  .header {
+    font-size: 95%;
+  }
+}

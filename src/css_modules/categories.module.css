@@ -21,7 +21,8 @@
 
 .category {
   width: 22%;
-  height: 100px;
+  height: 150px;
+  overflow-wrap: break-word;
   padding: 10px;
   background-color: #102542;
   box-shadow: 0 7px 7px -5px;
@@ -47,4 +48,23 @@
   padding: 5px 8px;
   margin-top: 10px;
   border-radius: 5px;
+}
+
+@media only screen and (max-width: 620px) {
+  .main {
+    width: 95%;
+    max-width: unset;
+    padding: 20px 0;
+  }
+
+  .categories {
+    padding: 0 15px;
+  }
+
+  .category {
+    width: 45%;
+    height: 120px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
 }
