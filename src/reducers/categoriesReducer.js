@@ -3,6 +3,7 @@ import {
   FILTER_DIFFICULTY,
   initialState,
   SET_CATEGORY,
+  SET_ERROR,
 } from '../actions/types';
 
 const categoriesReducer = (state = initialState, action) => {
@@ -26,6 +27,11 @@ const categoriesReducer = (state = initialState, action) => {
       return {
         ...state,
         category: action.payload,
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;
