@@ -65,3 +65,15 @@
 .wrong {
   background-color: red;
 }
+
+@media only screen and (max-width: 620px) {
+  .questionDetails h4,
+  .optionList li,
+  .difficulty {
+    font-size: 13px;
+  }
+
+  .questionContainer h4 {
+    font-size: 17px;
+  }
+}

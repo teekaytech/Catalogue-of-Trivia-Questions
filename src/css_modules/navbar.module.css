@@ -35,4 +35,8 @@
   .nav a {
     margin-bottom: 20px;
   }
+
+  .filter {
+    font-size: 13px;
+  }
 }
