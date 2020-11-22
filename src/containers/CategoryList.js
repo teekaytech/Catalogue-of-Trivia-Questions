@@ -23,7 +23,7 @@ const CategoryList = ({
   };
 
   const CategoryList = categories.length === 0 ? (
-    <div>Loading Categories...</div>
+    <span className={styles.loading}>Loading categories...</span>
   ) : (
     categories.map(category => (
       <Category

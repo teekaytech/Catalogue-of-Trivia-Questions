@@ -50,6 +50,10 @@
   border-radius: 5px;
 }
 
+.loading {
+  text-align: center;
+}
+
 @media only screen and (max-width: 620px) {
   .main {
     width: 95%;
