@@ -1,0 +1,42 @@
+.nav,
+.nav a,
+.filter {
+  color: #fff0ff;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.filter {
+  font-size: 120%;
+}
+
+.select {
+  margin-left: 10px;
+  padding: 5px;
+  border: unset;
+  font-size: 1em;
+}
+
+@media only screen and (max-width: 620px) {
+  .nav {
+    margin: 15px 0;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav a {
+    margin-bottom: 20px;
+  }
+
+  .filter {
+    font-size: 13px;
+  }
+}
