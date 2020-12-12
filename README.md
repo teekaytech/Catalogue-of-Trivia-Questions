@@ -1,6 +1,6 @@
 # Catalogue-of-Trivia-Questions
 
-> A single page application that fetches data from a backend API into Redux store. Visitors can see all available categories and also filter the trivia questions based on the selected difficulty. Built with React, Redux &amp; React Hooks. This project is one of the **Catalogue of Statistics** project: a React/Redux capstone project in microverse curriculum.
+> A single page application that fetches data from [Open Trivia API](https://opentdb.com/) into Redux store. Visitors can see all available categories and also filter the trivia questions based on the selected difficulty. Built with React, Redux &amp; React Hooks. This project is one of the **Catalogue of Statistics** project: a React/Redux capstone project in microverse curriculum.
 
 ![First Screenshot here...](public/screenshots/screenshot.png)
 ![Second screenshot here...](public/screenshots/screenshot2.png)
